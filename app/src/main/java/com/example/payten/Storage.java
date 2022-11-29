@@ -15,6 +15,9 @@ public class Storage {
         for(int i = 0; i<product_list.size(); i++){
             if(product_name==product_list.get(i).name){
                 product_list.get(i).stock+=number;
+                if(product_list.get(i).stock<product_list.get(i).min_value){
+                    //neki alert, pop up prozor, sta god
+                }
             }
         }
     }
@@ -24,6 +27,9 @@ public class Storage {
             if(product_name==product_list.get(i).name){
                 if(number<product_list.get(i).stock) {
                     product_list.get(i).stock -= number;
+                    if(product_list.get(i).stock<product_list.get(i).min_value){
+                        //neki alert, pop up prozor, sta god
+                    }
                 }else{product_list.get(i).stock=0;}
             }
         }
@@ -81,44 +87,44 @@ public class Storage {
         }
     }
 
-    public static void main(String[] args) {
-        Product p1=new Product("mleko");
-        Product p2=new Product("kafa");
-        Product p3=new Product("kikiriki");
-
-        Storage s=new Storage();
-
-        s.add_to_list(p1, 5);
-        s.add_to_list(p3, 10);
-        s.add_to_list(p2, 15);
-
-        s.add_products("kafa", 12);
-        s.add_products("kikiriki", 3);
-
-        s.remove_products("kafa", 17);
-
-        s.order_product("kikiriki", 15);
-
-        s.order_product("kafa", 3);
-
-        s.cancel_order("kafa");
-
-        s.decrease_order("kikiriki", 5);
-//======================================================
-        s.reserve_products("kikiriki", 15);
-
-        s.reserve_products("kafa", 3);
-
-        s.cancel_reservation("kafa");
-
-        s.decrease_reservation("kikiriki", 5);
-
-
-        for(int i = 0; i<s.product_list.size(); i++) {
-            System.out.println(s.product_list.get(i).name + ", stock: " + s.product_list.get(i).stock
-            + ", ordered: "+ s.product_list.get(i).ordered + ", reserved: " + s.product_list.get(i).reserved);
-        }
-    }
+//    public static void main(String[] args) {
+//        Product p1=new Product("mleko");
+//        Product p2=new Product("kafa");
+//        Product p3=new Product("kikiriki");
+//
+//        Storage s=new Storage();
+//
+//        s.add_to_list(p1, 5);
+//        s.add_to_list(p3, 10);
+//        s.add_to_list(p2, 15);
+//
+//        s.add_products("kafa", 12);
+//        s.add_products("kikiriki", 3);
+//
+//        s.remove_products("kafa", 17);
+//
+//        s.order_product("kikiriki", 15);
+//
+//        s.order_product("kafa", 3);
+//
+//        s.cancel_order("kafa");
+//
+//        s.decrease_order("kikiriki", 5);
+////======================================================
+//        s.reserve_products("kikiriki", 15);
+//
+//        s.reserve_products("kafa", 3);
+//
+//        s.cancel_reservation("kafa");
+//
+//        s.decrease_reservation("kikiriki", 5);
+//
+//
+//        for(int i = 0; i<s.product_list.size(); i++) {
+//            System.out.println(s.product_list.get(i).name + ", stock: " + s.product_list.get(i).stock
+//            + ", ordered: "+ s.product_list.get(i).ordered + ", reserved: " + s.product_list.get(i).reserved);
+//        }
+//    }
 
 
     //stokovani u rezervisane
