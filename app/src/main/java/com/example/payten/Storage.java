@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Storage {
     ArrayList<Product> product_list = new ArrayList<Product>();
-
+    //jjytygfy
     public void add_to_list(Product product, int stock){
         //exception da ne dodas proizvod koji ne postoji
         product.stock=stock;
