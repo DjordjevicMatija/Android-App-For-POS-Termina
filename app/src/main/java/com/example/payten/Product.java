@@ -7,7 +7,7 @@ public class Product {
     int min_value =0;
     String name;
 
-    //jhhiu
+
 
     public Product(String name, int min_value){
         this.name = name;
