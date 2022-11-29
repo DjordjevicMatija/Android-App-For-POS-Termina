@@ -4,6 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenu">
+    android:background="#D9AAE1"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="169dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="629dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="36dp"
+        android:text="Rezervacije"
+        app:backgroundTint="#700D81"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="169dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="538dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="127dp"
+        android:text="Menadzer"
+        app:backgroundTint="#700D81"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="169dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="538dp"
+        android:layout_marginBottom="127dp"
+        android:text="Kasir"
+        app:backgroundTint="#700D81"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="328dp"
+        android:layout_height="273dp"
+        android:src="@drawable/man_woman_avatar_rectangle_flat_icon_set_vector_21710638"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
