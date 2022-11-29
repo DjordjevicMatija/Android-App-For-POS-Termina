@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="20dp"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:layout_marginLeft="50dp"
+        />
+
+    <EditText
+        android:id="@+id/editname"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginLeft="20dp"
+        android:hint="e.g. milk"
+        android:minHeight="48dp"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/name_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount:"
+
+        android:layout_marginLeft="220dp"
+        />
+
+    <EditText
+        android:id="@+id/editname1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+
+
+        android:hint="e.g. 10"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/button_add_new_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        />
+
+</FrameLayout>
