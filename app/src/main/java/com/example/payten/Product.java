@@ -6,7 +6,7 @@ public class Product {
     private int reserved = 0;
     private String name;
 
-    public Product(String name){
+    public Product(String name) {
         this.name = name;
     }
 }
