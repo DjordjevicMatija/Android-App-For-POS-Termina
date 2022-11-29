@@ -1,6 +1,5 @@
 package com.example.payten;
 import java.util.ArrayList;
- //komentar
 
 public class Storage {
     ArrayList<Product> product_list = new ArrayList<Product>();
