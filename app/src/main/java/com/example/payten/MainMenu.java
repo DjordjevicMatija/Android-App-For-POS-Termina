@@ -17,4 +17,14 @@ public class MainMenu extends AppCompatActivity {
         Intent intent = new Intent(MainMenu.this, LoginActivity_Cashier.class);
         startActivity(intent);
     }
+
+    public void LoginManager(View view) {
+        Intent intent = new Intent(MainMenu.this, Manager.class);
+        startActivity(intent);
+    }
+
+    public void OpenRegistrations(View view) {
+        Intent intent = new Intent(MainMenu.this, Rezervacije.class);
+        startActivity(intent);
+    }
 }
