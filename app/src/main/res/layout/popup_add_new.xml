@@ -10,38 +10,36 @@
 
     <EditText
         android:id="@+id/newitempopup_name"
-        android:layout_width="180dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="24sp"
+        android:layout_marginLeft="5dp"
         android:hint="e.g. milk"
         android:textAlignment="center"
-        android:layout_marginLeft="5dp"
-        />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/newitempopup_amount"
-        android:layout_width="180dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
         android:layout_marginRight="5dp"
+        android:hint="e.g. 10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.801"
         app:layout_constraintStart_toEndOf="@+id/newitempopup_name"
-        app:layout_constraintTop_toTopOf="parent"
-        android:inputType="number"
-        android:hint="e.g. 10"
-        android:textAlignment="center"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/newitempopup_text_name"
-        android:layout_width="180dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:text="Name:"
@@ -49,14 +47,14 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/newitempopup_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/newitempopup_text_amount"
-        android:layout_width="180dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:text="Amount:"
@@ -64,11 +62,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/newitempopup_amount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/newitempopup_add"
