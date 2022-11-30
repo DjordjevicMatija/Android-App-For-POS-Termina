@@ -20,7 +20,8 @@ import android.widget.PopupWindow;
 
 
 public class Manager extends AppCompatActivity {
-    //Storage s = new Storage();
+    //public Storage s = Storage.getInstance();
+    //ili mozda samo Storage s = new Storage();
     int width;
     private Button add_button;
 
@@ -84,6 +85,7 @@ public class Manager extends AppCompatActivity {
         Product p = new Product(name);
 
 
+        MainMenu.s.add_to_list(p, amount);
     }
 
 
