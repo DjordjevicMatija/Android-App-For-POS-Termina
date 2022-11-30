@@ -82,6 +82,6 @@ public class Manager2_0 extends AppCompatActivity {
         Product p = new Product(name);
 
         MainMenu.s.add_to_list(p, amount);
-
+        //neki komentar
     }
 }
