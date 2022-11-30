@@ -76,6 +76,7 @@
         android:layout_width="136dp"
         android:layout_height="68dp"
         android:text="Login"
+        android:onClick="LoginManager"
         android:textSize="20sp"
         app:backgroundTint="#700D81"
         app:layout_constraintBottom_toBottomOf="parent"

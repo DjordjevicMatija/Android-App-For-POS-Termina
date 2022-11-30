@@ -1,23 +1,28 @@
 package com.example.payten;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Dialog;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 
 
 
 public class Manager extends AppCompatActivity {
-
+    //Storage s = new Storage();
     int width;
+    private Button add_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +33,16 @@ public class Manager extends AppCompatActivity {
         display.getSize(size);
         width = size.x;
         int height = size.y;
+
+        add_button = (Button) findViewById(R.id.add_button);
         addButtonClick();
+
     }
 
+    //request for new item - OLD
     private void addButtonClick() {
-        Button add_new = (Button) findViewById(R.id.add_button);
 
-        add_new.setOnClickListener(new View.OnClickListener() {
+        add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // inflate the layout of the popup window
@@ -49,8 +57,9 @@ public class Manager extends AppCompatActivity {
 
 
                 // show the popup window
-                // which view you pass in doesn't matter, it is only used for the window tolken
+                // which view you pass in doesn't matter, it is only used for the window token
                 popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
 
                 // dismiss the popup window when touched
                 popupView.setOnTouchListener(new View.OnTouchListener() {
@@ -62,5 +71,19 @@ public class Manager extends AppCompatActivity {
                 });
             }
         });
+
     }
+
+    //save added item
+    public void add_item(){
+        EditText text = (EditText)findViewById(R.id.editname);
+        String name = text.getText().toString();
+        text = (EditText) findViewById(R.id.editname1);
+        int amount = Integer.parseInt(text.getText().toString());
+
+        Product p = new Product(name);
+
+
+    }
+
 }
