@@ -9,7 +9,7 @@ public class Product {
 
     //komentar
 
-    public Product(String name){
+    public Product(String name) {
         this.name = name;
         //this.min_value=min_value;
     }
