@@ -25,7 +25,7 @@ public class LoginActivity_Cashier extends AppCompatActivity {
 
     public void LoginManager(View view){
         if(editTextUsername.getText().toString().equals("admin") && editTextPassword.getText().toString().equals("admin")){
-            Intent intent = new Intent(LoginActivity_Cashier.this, Manager2_0.class);
+            Intent intent = new Intent(LoginActivity_Cashier.this, Seller.class);
             startActivity(intent);
         }
     }
