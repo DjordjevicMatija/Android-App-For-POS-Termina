@@ -72,4 +72,16 @@ public class Manager2_0 extends AppCompatActivity {
             }
         });
     }
+
+    public void add_item(){
+        EditText text = (EditText)findViewById(R.id.editname);
+        String name = text.getText().toString();
+        text = (EditText) findViewById(R.id.editname1);
+        int amount = Integer.parseInt(text.getText().toString());
+
+        Product p = new Product(name);
+
+        MainMenu.s.add_to_list(p, amount);
+
+    }
 }
