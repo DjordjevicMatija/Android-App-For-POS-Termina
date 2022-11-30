@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 public class MainMenu extends AppCompatActivity {
     public static Storage s; //ranije je bilo public static Storage s=Storage.getInstance();
     @Override
@@ -28,5 +29,4 @@ public class MainMenu extends AppCompatActivity {
         Intent intent = new Intent(MainMenu.this, Rezervacije.class);
         startActivity(intent);
     }
-
 }
