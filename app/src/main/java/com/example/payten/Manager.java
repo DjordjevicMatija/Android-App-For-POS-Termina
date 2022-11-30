@@ -83,7 +83,7 @@ public class Manager extends AppCompatActivity {
 
         Product p = new Product(name);
 
-        MainMenu.s.add_to_list(p, amount);
+        //MainMenu.s.add_to_list(p, amount);
 
     }
 
