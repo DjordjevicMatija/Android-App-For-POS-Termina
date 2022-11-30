@@ -20,7 +20,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void LoginManager(View view) {
-        Intent intent = new Intent(MainMenu.this, Manager2_0.class);
+        Intent intent = new Intent(MainMenu.this, LoginActivity_Manager.class);
         startActivity(intent);
     }
 
