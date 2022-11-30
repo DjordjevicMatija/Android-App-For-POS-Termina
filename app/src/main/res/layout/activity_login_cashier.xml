@@ -7,37 +7,52 @@
     android:background="#D9AAE1"
     tools:context=".LoginActivity_Cashier">
 
+    <TextView
+        android:id="@+id/textViewIncorrect2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incorrect username or password"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.681" />
+
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="231dp"
         android:layout_height="59dp"
         android:layout_marginStart="155dp"
-        android:layout_marginTop="436dp"
         android:layout_marginEnd="46dp"
         android:ems="10"
         android:hint="Cashier"
         android:inputType="textPersonName"
         android:password="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633" />
 
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="231dp"
         android:layout_height="59dp"
         android:layout_marginStart="155dp"
-        android:layout_marginTop="308dp"
         android:layout_marginEnd="46dp"
         android:ems="10"
         android:hint="Cashier"
         android:inputType="textPersonName"
         android:password="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
 
     <TextView
         android:id="@+id/textView3"
@@ -76,7 +91,7 @@
         android:layout_width="136dp"
         android:layout_height="68dp"
         android:text="Login"
-        android:onClick="LoginManager"
+        android:onClick="LoginCashier"
         android:textSize="20sp"
         app:backgroundTint="#700D81"
         app:layout_constraintBottom_toBottomOf="parent"
