@@ -13,7 +13,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         //s = Storage.getInstance(); //ovo nije radilo kada se pozove main u drugoj funkciji
-        //bruuuhyy
+        //bruuuhyysda
     }
 
     public void LoginCashier(View view) {
