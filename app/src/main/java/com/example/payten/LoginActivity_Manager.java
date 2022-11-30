@@ -6,14 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class LoginActivity_Cashier extends AppCompatActivity {
+public class LoginActivity_Manager extends AppCompatActivity {
 
     private EditText editTextUsername, editTextPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_cashier);
+        setContentView(R.layout.activity_login_manager);
 
         initialize();
     }
@@ -25,9 +27,8 @@ public class LoginActivity_Cashier extends AppCompatActivity {
 
     public void LoginManager(View view){
         if(editTextUsername.getText().toString().equals("admin") && editTextPassword.getText().toString().equals("admin")){
-            Intent intent = new Intent(LoginActivity_Cashier.this, Manager2_0.class);
+            Intent intent = new Intent(LoginActivity_Manager.this, Manager2_0.class);
             startActivity(intent);
         }
     }
-
 }
