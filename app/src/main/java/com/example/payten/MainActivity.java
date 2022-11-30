@@ -11,11 +11,12 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 public class MainActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Storage storage_main = new Storage();
         Handler mHandler = new Handler();
 
         mHandler.postDelayed(new Runnable() {
