@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 public class MainMenu extends AppCompatActivity {
-    public static Storage s; //ranije je bilo public static Storage s=Storage.getInstance();
+    static Storage s=Storage.getInstance(); //ranije je bilo public static Storage s=Storage.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        s = Storage.getInstance();
+        //s = Storage.getInstance(); //ovo nije radilo kada se pozove main u drugoj funkciji
+        //bruuuhyysda
     }
 
     public void LoginCashier(View view) {
@@ -28,5 +30,6 @@ public class MainMenu extends AppCompatActivity {
         Intent intent = new Intent(MainMenu.this, Rezervacije.class);
         startActivity(intent);
     }
+
 
 }
