@@ -12,8 +12,6 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        //s = Storage.getInstance(); //ovo nije radilo kada se pozove main u drugoj funkciji
-        //bruuuhyysda
     }
 
     public void LoginCashier(View view) {
@@ -27,7 +25,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void OpenRegistrations(View view) {
-        Intent intent = new Intent(MainMenu.this, Rezervacije.class);
+        Intent intent = new Intent(MainMenu.this, Reservations.class);
         startActivity(intent);
     }
 
