@@ -61,7 +61,6 @@ public class Manager2_0 extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 txt_edit = input.getText().toString();
-                Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
                 switch (buttonType) {
                     case 0:
                         MainMenu.s.add_products(name,Integer.parseInt(txt_edit));
