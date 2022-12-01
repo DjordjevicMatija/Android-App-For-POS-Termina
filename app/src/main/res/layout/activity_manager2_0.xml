@@ -24,36 +24,41 @@
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:background="@drawable/border">
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_height="62dp"
+                    android:paddingTop="15dp"
                     android:text="Item"
-                    android:textStyle="bold" >
-                </TextView>
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_height="62dp"
                     android:clickable="true"
                     android:gravity="center_horizontal"
-                    android:text="Stock"></TextView>
+                    android:text="Stock"
+                    android:textSize="20sp"></TextView>
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_height="62dp"
                     android:clickable="true"
                     android:gravity="center_horizontal"
+                    android:onClick="ClickReserve"
                     android:text="Reserved"
-                    android:onClick="ClickReserve"></TextView>
+                    android:textSize="20sp"></TextView>
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_height="62dp"
                     android:gravity="center_horizontal"
-                    android:text="Ordered" >
-                </TextView>
+                    android:text="Ordered"
+                    android:textSize="20sp"></TextView>
 
 
             </TableRow>

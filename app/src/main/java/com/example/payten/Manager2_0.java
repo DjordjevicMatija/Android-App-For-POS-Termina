@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -130,6 +131,7 @@ public class Manager2_0 extends AppCompatActivity {
         table = (TableLayout) findViewById(R.id.tableLayout1);
         //table.removeAllViews();
 
+        itemCount = 0;
         for(int i = 0; i < MainMenu.s.product_list.size(); i++) {
             itemCount++;
             TableRow row = new TableRow(getApplicationContext());
@@ -143,9 +145,18 @@ public class Manager2_0 extends AppCompatActivity {
             txt2.setText(MainMenu.s.product_list.get(i).stock + "");
             txt3.setText(MainMenu.s.product_list.get(i).reserved + "");
             txt4.setText(MainMenu.s.product_list.get(i).ordered + "");
+            txt1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             txt2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             txt3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             txt4.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            txt1.setTextSize(18);
+            txt2.setTextSize(18);
+            txt3.setTextSize(18);
+            txt4.setTextSize(18);
+            txt1.setPadding(5, 5, 5, 5);
+            txt2.setPadding(5, 5, 5, 5);
+            txt3.setPadding(5, 5, 5, 5);
+            txt4.setPadding(5, 5, 5, 5);
 
             if (MainMenu.s.product_list.get(i).stock < 5) {
                 txt1.setBackgroundColor(0xFFFF0000);
@@ -233,6 +244,7 @@ public class Manager2_0 extends AppCompatActivity {
 
                 MainMenu.s.add_to_list(p, amount);
 
+                clearTable();
                 MakeTable();
 
 

@@ -164,9 +164,12 @@ public class Seller extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int amount = Integer.parseInt(input.getText().toString());
-                Toast.makeText(getApplicationContext(), amount + "", Toast.LENGTH_LONG).show();
-                input.setText("");
-                MainMenu.s.remove_products(MainMenu.s.product_list.get(selectedItem).name, amount);
+                if (amount <= MainMenu.s.product_list.get(selectedItem).stock) {
+                    Toast.makeText(getApplicationContext(), amount + "", Toast.LENGTH_LONG).show();
+                    input.setText("");
+                    MainMenu.s.remove_products(MainMenu.s.product_list.get(selectedItem).name, amount);
+                }
+
             }
         });
 
