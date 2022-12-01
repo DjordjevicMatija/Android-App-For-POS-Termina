@@ -7,8 +7,6 @@ public class Product {
     int min_value = 10;
     String name;
 
-    //komentar
-
     public Product(String name){
         this.name = name;
         //this.min_value=min_value;
