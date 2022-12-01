@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridLayout;
@@ -85,6 +86,7 @@ public class Seller extends AppCompatActivity {
 
     EditText input;
     AlertDialog dialog;
+    int selectedItem = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +139,7 @@ public class Seller extends AppCompatActivity {
                 public void onClick(View view) {
                     dialog.setTitle(txt);
                     dialog.show();
+                    selectedItem = finalI;
                 }
             });
 
@@ -161,10 +164,9 @@ public class Seller extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int amount = Integer.parseInt(input.getText().toString());
-                //String name =
                 Toast.makeText(getApplicationContext(), amount + "", Toast.LENGTH_LONG).show();
                 input.setText("");
-                //MainMenu.s.remove_products();
+                MainMenu.s.remove_products(MainMenu.s.product_list.get(selectedItem).name, amount);
             }
         });
 
