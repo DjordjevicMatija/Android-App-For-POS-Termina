@@ -29,6 +29,11 @@ public class Manager2_0 extends AppCompatActivity {
     private EditText newitempopup_name, newitempopup_amount;
     private String txt_edit;
     private ArrayList<TableRow> rows= new ArrayList<TableRow>();
+    String name;
+    TextView reservedTV;
+    TextView stockTV;
+    TextView orderedTV;
+    int buttonType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +57,24 @@ public class Manager2_0 extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 txt_edit = input.getText().toString();
                 Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
+                switch (buttonType) {
+                    case 0:
+                        MainMenu.s.add_products(name,Integer.parseInt(txt_edit));
+                        stockTV.setText(String.valueOf(MainMenu.s.getProduct(name).stock));
+                        break;
+                    case 1:
+                        MainMenu.s.reserve_products(name, Integer.parseInt(txt_edit));
+                        MainMenu.s.remove_products(name, Integer.parseInt(txt_edit));
+                        stockTV.setText(String.valueOf(MainMenu.s.getProduct(name).stock));
+                        reservedTV.setText(txt_edit);
+                        break;
+                    case 2:
+                        MainMenu.s.order_product(name, Integer.parseInt(txt_edit));
+                        orderedTV.setText(txt_edit);
+                        break;
+                }
 
-
+                input.setText("");
             }
         });
 
@@ -110,16 +131,47 @@ public class Manager2_0 extends AppCompatActivity {
             txt2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             txt3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             txt4.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-//                txt3.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        dialog2.setTitle(name);
-//                        dialog2.show();
-//                        Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
-//                        MainMenu.s.reserve_products(p.name, Integer.parseInt(txt_edit));
-//                        //txt3.setText(txt_edit);
-//                    }
-//                });
+            int finalI = i;
+            txt2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog2.setTitle(name);
+                    dialog2.show();
+                    name=MainMenu.s.product_list.get(finalI).name;
+                    stockTV = txt2;
+                    buttonType=0;
+                    //Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
+
+                    //txt3.setText(txt_edit);
+                }
+            });
+            txt3.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       dialog2.setTitle(name);
+                       dialog2.show();
+                       name=MainMenu.s.product_list.get(finalI).name;
+                       stockTV = txt2;
+                       reservedTV = txt3;
+                       buttonType=1;
+                       //Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
+
+                       //txt3.setText(txt_edit);
+                   }
+               });
+            txt4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog2.setTitle(name);
+                    dialog2.show();
+                    name=MainMenu.s.product_list.get(finalI).name;
+                    orderedTV = txt4;
+                    buttonType=2;
+                    //Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
+
+                    //txt3.setText(txt_edit);
+                }
+            });
             row.addView(txt1);
             row.addView(txt2);
             row.addView(txt3);

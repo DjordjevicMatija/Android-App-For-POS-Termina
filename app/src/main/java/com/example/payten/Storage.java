@@ -1,4 +1,6 @@
 package com.example.payten;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Storage {
@@ -6,103 +8,120 @@ public class Storage {
 
     private static Storage single_instance = null;
 
-    private Storage(){}
+    private Storage() {
+    }
 
-    public static Storage getInstance()
-    {
+    public static Storage getInstance() {
         if (single_instance == null)
             single_instance = new Storage();
 
         return single_instance;
     }
 
-    public void add_to_list(Product product, int stock){
+    public void add_to_list(Product product, int stock) {
         //exception da ne dodas proizvod koji ne postoji
-        product.stock=stock;
+        product.stock = stock;
         product_list.add(product);
     }
 
-    public Product get_head(){
-        Product p = product_list.get(product_list.size()-1);
+    public Product get_head() {
+        Product p = product_list.get(product_list.size() - 1);
         return p;
     }
 
-    public void add_products(String product_name, int number){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                product_list.get(i).stock+=number;
-                if(product_list.get(i).stock<product_list.get(i).min_value){
+    public void add_products(String product_name, int number) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                product_list.get(i).stock += number;
+                if (product_list.get(i).stock < product_list.get(i).min_value) {
                     //neki alert, pop up prozor, sta god
                 }
             }
         }
     }
 
-    public void remove_products(String product_name, int number){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                if(number<product_list.get(i).stock) {
+    public void remove_products(String product_name, int number) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                if (number < product_list.get(i).stock) {
                     product_list.get(i).stock -= number;
-                    if(product_list.get(i).stock<product_list.get(i).min_value){
+                    if (product_list.get(i).stock < product_list.get(i).min_value) {
                         //neki alert, pop up prozor, sta god
                     }
-                }else{product_list.get(i).stock=0;}
+                } else {
+                    product_list.get(i).stock = 0;
+                }
             }
         }
     }
 
-    public void order_product(String product_name, int number){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                product_list.get(i).ordered+=number;
+    public void order_product(String product_name, int number) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                product_list.get(i).ordered += number;
             }
         }
     }
 
-    public void decrease_order(String product_name, int number){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                if(number<product_list.get(i).ordered) {
+    public void decrease_order(String product_name, int number) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                if (number < product_list.get(i).ordered) {
                     product_list.get(i).ordered -= number;
-                }else{product_list.get(i).ordered = 0;}
+                } else {
+                    product_list.get(i).ordered = 0;
+                }
             }
         }
     }
 
-    public void cancel_order(String product_name){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                product_list.get(i).ordered=0;
+    public void cancel_order(String product_name) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                product_list.get(i).ordered = 0;
             }
         }
     }
 
-    public void reserve_products(String product_name, int number){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                product_list.get(i).reserved+=number;
+    public void reserve_products(String product_name, int number) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                product_list.get(i).reserved += number;
             }
         }
     }
 
-    public void decrease_reservation(String product_name, int number){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                if(number<product_list.get(i).reserved) {
+    public void decrease_reservation(String product_name, int number) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                if (number < product_list.get(i).reserved) {
                     product_list.get(i).reserved -= number;
-                }else{product_list.get(i).reserved = 0;}
+                } else {
+                    product_list.get(i).reserved = 0;
+                }
             }
         }
     }
 
-    public void cancel_reservation(String product_name){
-        for(int i = 0; i<product_list.size(); i++){
-            if(product_name==product_list.get(i).name){
-                product_list.get(i).reserved=0;
+    public void cancel_reservation(String product_name) {
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_name == product_list.get(i).name) {
+                product_list.get(i).reserved = 0;
             }
         }
     }
 
+    public Product getProduct(String name) {
+
+        for (int i = 0; i < product_list.size(); i++) {
+            if (product_list.get(i).name == name) {
+                return product_list.get(i);
+            }
+        }
+
+        return null;
+    }
+}
 //    public static void main(String[] args) {
 //        Product p1=new Product("mleko");
 //        Product p2=new Product("kafa");
@@ -147,8 +166,3 @@ public class Storage {
     //rezervisani u stokovane
     //izbaci iz rezervisanih
     //
-
-
-
-
-}
