@@ -93,15 +93,6 @@ public class Seller extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller);
 
-        Product p1=new Product("Akumulator");
-        Product p4=new Product("Ulje");
-        Product p2=new Product("Felna");
-        Product p3=new Product("kikiriki");
-        MainMenu.s.add_to_list(p1, 5);
-        MainMenu.s.add_to_list(p3, 10);
-        MainMenu.s.add_to_list(p2, 15);
-        MainMenu.s.add_to_list(p4, 15);
-
         make_popup();
         fill_grid(dialog);
     }
@@ -125,8 +116,20 @@ public class Seller extends AppCompatActivity {
                 case "Felna":
                     btnTag.setImageResource(R.drawable.felna);
                     break;
+                case "Armortizer":
+                    btnTag.setImageResource(R.drawable.armortizer);
+                    break;
+                case "Kocnica":
+                    btnTag.setImageResource(R.drawable.kocnica);
+                    break;
+                case "Svecica":
+                    btnTag.setImageResource(R.drawable.svecica);
+                    break;
+                case "Retrovizor":
+                    btnTag.setImageResource(R.drawable.retrovizor);
+                    break;
                 default:
-                    btnTag.setImageResource(R.drawable.akumulator2);
+                    btnTag.setImageResource(R.drawable.ic_baseline_build_24);
                     break;
             }
             btnTag.setId(i);
