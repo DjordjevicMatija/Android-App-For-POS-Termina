@@ -25,7 +25,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void OpenRegistrations(View view) {
-        Intent intent = new Intent(MainMenu.this, Rezervacije.class);
+        Intent intent = new Intent(MainMenu.this, Reservations.class);
         startActivity(intent);
     }
 
