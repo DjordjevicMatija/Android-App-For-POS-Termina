@@ -4,28 +4,72 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Manager2_0 extends AppCompatActivity {
 
 
     private AlertDialog.Builder dialog_builder;
-    private AlertDialog dialog;
+    private AlertDialog dialog, dialog2;
     private Button newitempopup_add, newitempopup_cancel;
     private EditText newitempopup_name, newitempopup_amount;
+    private String txt_edit;
+    private ArrayList<TableRow> rows= new ArrayList<TableRow>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager2_0);
+        pop_up();
     }
 
+    public void pop_up() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Title");
+        builder.setMessage("Number of products to change");
+
+        EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        builder.setView(input);
+        // set positive button
+        builder.setPositiveButton("CHANGE", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                txt_edit = input.getText().toString();
+                Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+
+        // set negative button
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                input.setText("");
+                dialog.dismiss();
+            }
+        });
+
+        // create dialog
+        dialog2 = builder.create();
+        //txt3.setText(txt_edit[0]);};
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,6 +87,51 @@ public class Manager2_0 extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void ClickReserve(View v){
+        TextView txt1 = (TextView)findViewById(v.getId());
+        txt1.setText("????");
+    }
+    public void MakeTable() {//create a new row to add
+        TableLayout table = (TableLayout) findViewById(R.id.tableLayout1);
+        //table.removeAllViews();
+        table.removeViews(1, MainMenu.s.product_list.size()-1);
+        for(int i = 0; i<MainMenu.s.product_list.size(); i++) {
+            TableRow row = new TableRow(getApplicationContext());
+            //add Layouts to your new row
+
+            TextView txt1 = new TextView(getApplicationContext());
+            TextView txt2 = new TextView(getApplicationContext());
+            TextView txt3 = new TextView(getApplicationContext());
+            TextView txt4 = new TextView(getApplicationContext());
+            txt1.setText(MainMenu.s.product_list.get(i).name);
+            txt2.setText(MainMenu.s.product_list.get(i).stock + "");
+            txt3.setText(MainMenu.s.product_list.get(i).reserved + "");
+            txt4.setText(MainMenu.s.product_list.get(i).ordered + "");
+            txt2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            txt3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            txt4.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+//                txt3.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        dialog2.setTitle(name);
+//                        dialog2.show();
+//                        Toast.makeText(getApplicationContext(), txt_edit, Toast.LENGTH_LONG).show();
+//                        MainMenu.s.reserve_products(p.name, Integer.parseInt(txt_edit));
+//                        //txt3.setText(txt_edit);
+//                    }
+//                });
+            row.addView(txt1);
+            row.addView(txt2);
+            row.addView(txt3);
+            row.addView(txt4);
+            table.addView(row);
+            //add your new row to the TableLayout:
+
+            dialog.dismiss();
+        }
+
+        //TableLayout table = new TableLayout()}
+    }
     //call popup
     public void create_new_dialog(){
         dialog_builder = new AlertDialog.Builder(this);
@@ -68,7 +157,11 @@ public class Manager2_0 extends AppCompatActivity {
                 Product p = new Product(name);
 
                 MainMenu.s.add_to_list(p, amount);
-                dialog.dismiss();
+
+                MakeTable();
+
+
+
 
             }
         });

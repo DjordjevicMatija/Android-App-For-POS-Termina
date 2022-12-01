@@ -22,6 +22,11 @@ public class Storage {
         product_list.add(product);
     }
 
+    public Product get_head(){
+        Product p = product_list.get(product_list.size()-1);
+        return p;
+    }
+
     public void add_products(String product_name, int number){
         for(int i = 0; i<product_list.size(); i++){
             if(product_name==product_list.get(i).name){
