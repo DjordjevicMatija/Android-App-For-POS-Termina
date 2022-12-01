@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Manager2_0 extends AppCompatActivity {
 
@@ -60,7 +61,15 @@ public class Manager2_0 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //define add button here
-                //add_item();
+
+                String name = newitempopup_name.getText().toString();
+                int amount = Integer.parseInt(newitempopup_amount.getText().toString());
+
+                Product p = new Product(name);
+
+                MainMenu.s.add_to_list(p, amount);
+                dialog.dismiss();
+
             }
         });
 
@@ -72,4 +81,59 @@ public class Manager2_0 extends AppCompatActivity {
             }
         });
     }
+
+    public void add_item(){
+        Toast.makeText(getApplicationContext(), "add f-ja", Toast.LENGTH_LONG).show();
+
+        EditText text = (EditText)findViewById(R.id.newitempopup_name);
+        String name = text.getText().toString();
+        text = (EditText) findViewById(R.id.newitempopup_amount);
+        int amount = Integer.parseInt(text.getText().toString());
+
+        Product p = new Product(name);
+
+        MainMenu.s.add_to_list(p, amount);
+        Toast.makeText(getApplicationContext(), p.name, Toast.LENGTH_SHORT).show();
+    }
+
+//    public static void main(String[] args) {
+//        Product p1=new Product("mleko");
+//        Product p2=new Product("kafa");
+//        Product p3=new Product("kikiriki");
+//
+//
+//
+//        MainMenu.s.add_to_list(p1, 5);
+//        MainMenu.s.add_to_list(p3, 10);
+//
+//        MainMenu.s.add_to_list(p2, 15);
+//
+//        MainMenu.s.add_products("kafa", 12);
+//        MainMenu.s.add_products("kikiriki", 3);
+//
+//        MainMenu.s.remove_products("kafa", 17);
+//
+//        MainMenu.s.order_product("kikiriki", 15);
+//
+//        MainMenu.s.order_product("kafa", 3);
+//
+//        MainMenu.s.cancel_order("kafa");
+//
+//        MainMenu.s.decrease_order("kikiriki", 5);
+////======================================================
+//        MainMenu.s.reserve_products("kikiriki", 15);
+//
+//        MainMenu.s.reserve_products("kafa", 3);
+//
+//        MainMenu.s.cancel_reservation("kafa");
+//
+//        MainMenu.s.decrease_reservation("kikiriki", 5);
+//
+//
+//        for(int i = 0; i<MainMenu.s.product_list.size(); i++) {
+//            System.out.println(MainMenu.s.product_list.get(i).name + ", stock: " + MainMenu.s.product_list.get(i).stock
+//                    + ", ordered: "+ MainMenu.s.product_list.get(i).ordered + ", reserved: " + MainMenu.s.product_list.get(i).reserved);
+//        }
+//    }
+
 }

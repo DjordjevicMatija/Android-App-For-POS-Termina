@@ -7,19 +7,6 @@
     android:background="#D9AAE1"
     tools:context=".LoginActivity_Cashier">
 
-    <TextView
-        android:id="@+id/textViewIncorrect2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Incorrect username or password"
-        android:textColor="#F44336"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.745"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
-
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="231dp"
@@ -27,7 +14,7 @@
         android:layout_marginStart="155dp"
         android:layout_marginEnd="46dp"
         android:ems="10"
-        android:hint="Cashier"
+        android:hint="Manager"
         android:inputType="textPersonName"
         android:password="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <EditText
         android:id="@+id/editTextUsername"
@@ -44,15 +31,14 @@
         android:layout_marginStart="155dp"
         android:layout_marginEnd="46dp"
         android:ems="10"
-        android:hint="Cashier"
+        android:hint="Manager"
         android:inputType="textPersonName"
-        android:password="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.453" />
+        app:layout_constraintVertical_bias="0.455" />
 
     <TextView
         android:id="@+id/textView3"
@@ -84,14 +70,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.652" />
 
     <Button
         android:id="@+id/button_login"
         android:layout_width="136dp"
         android:layout_height="68dp"
+        android:onClick="LoginManager"
         android:text="Login"
-        android:onClick="LoginCashier"
         android:textSize="20sp"
         app:backgroundTint="#700D81"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,4 +86,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.875" />
+
+    <TextView
+        android:id="@+id/textViewIncorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incorrect username or password"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.695" />
 </androidx.constraintlayout.widget.ConstraintLayout>
