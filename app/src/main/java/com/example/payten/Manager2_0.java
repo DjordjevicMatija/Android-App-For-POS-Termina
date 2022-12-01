@@ -34,11 +34,15 @@ public class Manager2_0 extends AppCompatActivity {
     TextView stockTV;
     TextView orderedTV;
     int buttonType;
+    int itemCount;
+    TableLayout table;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager2_0);
+        itemCount = 0;
+        MakeTable();
         pop_up();
     }
 
@@ -60,21 +64,25 @@ public class Manager2_0 extends AppCompatActivity {
                 switch (buttonType) {
                     case 0:
                         MainMenu.s.add_products(name,Integer.parseInt(txt_edit));
-                        stockTV.setText(String.valueOf(MainMenu.s.getProduct(name).stock));
+                        //stockTV.setText(String.valueOf(MainMenu.s.getProduct(name).stock));
                         break;
                     case 1:
                         MainMenu.s.reserve_products(name, Integer.parseInt(txt_edit));
                         MainMenu.s.remove_products(name, Integer.parseInt(txt_edit));
-                        stockTV.setText(String.valueOf(MainMenu.s.getProduct(name).stock));
-                        reservedTV.setText(txt_edit);
+                        //stockTV.setText(String.valueOf(MainMenu.s.getProduct(name).stock));
+                        //reservedTV.setText(String.valueOf(MainMenu.s.getProduct(name).reserved));
                         break;
                     case 2:
                         MainMenu.s.order_product(name, Integer.parseInt(txt_edit));
-                        orderedTV.setText(txt_edit);
+                        //orderedTV.setText(txt_edit);
                         break;
                 }
 
+                clearTable();
+                MakeTable();
+
                 input.setText("");
+                dialog.dismiss();
             }
         });
 
@@ -86,6 +94,8 @@ public class Manager2_0 extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+
+
 
         // create dialog
         dialog2 = builder.create();
@@ -110,13 +120,18 @@ public class Manager2_0 extends AppCompatActivity {
 
     public void ClickReserve(View v){
         TextView txt1 = (TextView)findViewById(v.getId());
-        txt1.setText("????");
     }
-    public void MakeTable() {//create a new row to add
-        TableLayout table = (TableLayout) findViewById(R.id.tableLayout1);
+
+    public void clearTable() {
+        table.removeViews(1, itemCount);
+    }
+
+    public void MakeTable() { //create a new row to add
+        table = (TableLayout) findViewById(R.id.tableLayout1);
         //table.removeAllViews();
-        table.removeViews(1, MainMenu.s.product_list.size()-1);
-        for(int i = 0; i<MainMenu.s.product_list.size(); i++) {
+
+        for(int i = 0; i < MainMenu.s.product_list.size(); i++) {
+            itemCount++;
             TableRow row = new TableRow(getApplicationContext());
             //add Layouts to your new row
 
@@ -131,6 +146,14 @@ public class Manager2_0 extends AppCompatActivity {
             txt2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             txt3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             txt4.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+            if (MainMenu.s.product_list.get(i).stock < 5) {
+                txt1.setBackgroundColor(0xFFFF0000);
+                txt2.setBackgroundColor(0xFFFF0000);
+                txt3.setBackgroundColor(0xFFFF0000);
+                txt4.setBackgroundColor(0xFFFF0000);
+            }
+
             int finalI = i;
             txt2.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -179,7 +202,7 @@ public class Manager2_0 extends AppCompatActivity {
             table.addView(row);
             //add your new row to the TableLayout:
 
-            dialog.dismiss();
+
         }
 
         //TableLayout table = new TableLayout()}
@@ -214,7 +237,7 @@ public class Manager2_0 extends AppCompatActivity {
 
 
 
-
+                dialog.dismiss();
             }
         });
 

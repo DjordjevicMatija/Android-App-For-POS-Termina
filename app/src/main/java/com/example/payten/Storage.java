@@ -86,7 +86,12 @@ public class Storage {
     public void reserve_products(String product_name, int number) {
         for (int i = 0; i < product_list.size(); i++) {
             if (product_name == product_list.get(i).name) {
-                product_list.get(i).reserved += number;
+                if (number > product_list.get(i).stock) {
+                    product_list.get(i).reserved = product_list.get(i).stock;
+                }else{
+                    product_list.get(i).reserved += number;
+                }
+
             }
         }
     }
