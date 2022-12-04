@@ -116,7 +116,7 @@ public class Seller extends AppCompatActivity {
                 case "Felna":
                     btnTag.setImageResource(R.drawable.felna);
                     break;
-                case "Armortizer":
+                case "Amortizer":
                     btnTag.setImageResource(R.drawable.armortizer);
                     break;
                 case "Kocnica":
